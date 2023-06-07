@@ -50,13 +50,90 @@ outerFunc의 life-cycle은 종료되었고, 변수 x에 접근할 방법은 없�
 
 ### 2. 클로저의 활용
 
-<details>
-    <summary>자세히</summary>
-
 자신의 생성될 때의 환경을 기억한다면, 메모리 차원에서 손해를 볼 수 있다. <br />
 그럼에도 불구하고 이는 자바스크립트의 강력한 기능으로 사용될 수 있다.
 
+<details>
+    <summary>자세히</summary>
+
 #### 2.1 상태 유지
+클로저를 이용하여 현재 상태를 기억하고, 변경된 최신 상태를 유지할 수 있다.
+```js
+ var box = document.querySelector('.box');
+    var toggleBtn = document.querySelector('.toggle');
+
+    var toggle = (function () {
+      var isShow = false;
+
+      // ① 클로저를 반환
+      return function () {
+        box.style.display = isShow ? 'block' : 'none';
+        // ③ 상태 변경
+        isShow = !isShow;
+      };
+    })();
+
+    // ② 이벤트 프로퍼티에 클로저를 할당
+    toggleBtn.onclick = toggle;ß
+```
+
+#### 2.2 전역 변수의 사용 억제, 정보의 은닉
+전역변수는 언제든지 누구나 변경이 가능하다. 이는 의도치 않게 값이 변경될 수 있다는 것을 의미한다. <br />
+클로저는 변수를 private하게 만들어, 의도치 않은 변경을 저지할 수 있다.
+```js
+var incleaseBtn = document.getElementById('inclease');
+    var count = document.getElementById('count');
+
+    var increase = (function () {
+      var counter = 0;
+      return function () {
+        return ++counter;
+      };
+    }());
+
+    incleaseBtn.onclick = function () {
+      count.innerHTML = increase();
+    };
+```
+
+#### 2.3 자주 발생하는 실수
+
+```js
+var arr = [];
+
+for (var i = 0; i < 5; i++) {
+  arr[i] = function () {
+    return i;
+  };
+}
+
+for (var j = 0; j < arr.length; j++) {
+  console.log(arr[j]()); // 5 5 5 5 5
+}
+```
+i가 전역변수이기 때문에 발생하는 문제이다. 클로저를 사용하면 다음과 같이 고칠 수 있다.
+```js
+var arr = [];
+
+for (var i = 0; i < 5; i++){
+  arr[i] = (function (id) { // ②
+    return function () {
+      return id; // ③
+    };
+  }(i)); // ①
+}
+
+for (var j = 0; j < arr.length; j++) {
+  console.log(arr[j]());
+}
+```
+① 배열 arr에는 즉시실행함수에 의해 함수가 반환된다.
+
+② 이때 즉시실행함수는 i를 인자로 전달받고 매개변수 id에 할당한 후 내부 함수를 반환하고 life-cycle이 종료된다. 매개변수 id는 자유변수가 된다.
+
+③ 배열 arr에 할당된 함수는 id를 반환한다. 이때 id는 상위 스코프의 자유변수이므로 그 값이 유지된다.
+
+(사실 let 키워드를 사용하면 더 쉽게 해결할 수 있다)
 
 </details>
 
