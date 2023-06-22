@@ -3,6 +3,15 @@
 > 컴포넌트는 생성(mounting) -> 업데이트(updating) -> 제거(unmounting)의 생명주기를 갖는다. <br />
 > 즉, 컴포넌트는 계속 존재하는 것이 아니라, 시간의 흐름에 따라 생성되고, 업데이트 되다가 사라진다.
 
+<img src="https://blog.kakaocdn.net/dn/lHdwQ/btq6imCIhj2/3Sk3019f2pcBhed1pTg5q1/img.png" />
+
+[//]: # (componentWillMount&#40;&#41;)
+
+[//]: # (: 컴포넌트 생성 전에&#40;render 일어나기 전에&#41; 필요한 구현 여기다가 작성)
+
+[//]: # ()
+
+
 <img src="https://velog.velcdn.com/images%2Fminbr0ther%2Fpost%2F7f8ed738-2f24-46bd-ab9f-2c7e7d7976e2%2FUntitled-3.png" />
 
 ### 1.1. Class Componet 생명주기
@@ -12,8 +21,8 @@
 순서는 다음과 같다.
 
 > 1. state, context, defaultProps 저장
-> 2. **render**로 컴포넌트를 DOM에 부착
-> 3. Mount가 완료된 후 **componentDidMount** 호출
+> 2. **render**로 컴포넌트를 DOM에 부착 (화면에 컴포넌트 그려짐)
+> 3. Mount가 완료된 후(컴포넌트가 생성되고 난 후) **componentDidMount** 호출
 
 
 **constructor(생성자)**<br />
@@ -52,11 +61,11 @@ props로부터 파생된 state를 가져온다. <br />
 컴포넌트의 props나 state가 바뀌었을때도 이 메서드가 호출된다.
 
 **shouldComponentUpdate**<br />
-컴포넌트가 리렌더링 할지 말지를 결정하는 메서드이다.<br />
+컴포넌트 리렌더링이 필요한지를 결정하는 메서드이다.<br />
 React.memo와 유사하며, boolean 반환으로 결정된다.
 
 **componentDidUpdate**<br />
-컴포넌트가 업데이트 되고 난 후 발생한다.<br />
+컴포넌트가 업데이트 되고 난 후 발생한다. 컴포넌트 업데이트가 끝났다는 뜻이다. <br />
 (의존성 배열이 변할때만 useEffect가 실행하는 것과 같음)
 
 
@@ -112,6 +121,22 @@ DOM에 직접 등록했던 이벤트를 제거한다.<br />
 
 ### 2.1. Functional Componet 생명주기
 > Hook은 함수형 컴포넌트에서 React state와 생명주기 기능을 연동할 수 있게 해주는 함수이다.
+> 
+
+<details>
+    <summary>자세히</summary>
+
+- 이점
+1. 기존의 라이프사이클 기반이 아닌, 로직 기반으로 나눌 수 있어 컴포넌트를 함수 단위로 잘게  쪼갤 수 있다는 이점이 있다.
+2. 라이프사이클 메서드에는 관련 없는 로직이 자주 섞여 들어가는데, 이는 무결성을 해치게 된다.
+
+- Hook 사용 규칙
+1. 최상위에서만 호출해야 한다. 이 규칙을 따르면, 컴포넌트가 렌더링 될 때마다, 항상 동일한 순서로 Hook이 호출되는 것을 보장할 수 있다.
+2. 일반 JS함수가 아니라, 리액트 함수 컴포넌트에서만 Hook을 호출해야 한다.
+
+</details>
+
+<br />
 
 <img src="https://velog.velcdn.com/images/colagom/post/3bac93b6-60fe-45ca-9f1a-c50f464ee5c9/image.png" width="800px" />
 
@@ -129,32 +154,21 @@ DOM에 직접 등록했던 이벤트를 제거한다.<br />
 
 > 컴포넌트 소멸 전, useEffect 내부 clean up 함수 실행
 
-<details>
-    <summary>자세히</summary>
-
-- 이점
-1. 기존의 라이프사이클 기반이 아닌, 로직 기반으로 나눌 수 있어 컴포넌트를 함수 단위로 잘게  쪼갤 수 있다는 이점이 있다.
-2. 라이프사이클 메서드에는 관련 없는 로직이 자주 섞여 들어가는데, 이는 무결성을 해치게 된다.
-
-- Hook 사용 규칙
-1. 최상위에서만 호출해야 한다. 이 규칙을 따르면, 컴포넌트가 렌더링 될 때마다, 항상 동일한 순서로 Hook이 호출되는 것을 보장할 수 있다.
-2. 일반 JS함수가 아니라, 리액트 함수 컴포넌트에서만 Hook을 호출해야 한다.
-
-</details>
 
 
 **useEffect** <br />
-화면에 렌더링이 완료된 후에 수행되며componentDidMount와 componentDidUpdate, componentWillUnmount가 합쳐진 것
+처음으로 화면에 렌더링이 완료된 후, 그리고 다시 렌더링이 될 때마다 실행된다.
+componentDidMount와 componentDidUpdate 가 합쳐진 것
 
 ❗️만약 화면을 다 그리기 이전에 동기화 되어야 하는 경우에는,useLayoutEffect를 활용하여 컴포넌트 렌더링 - useLayoutEffect 실행 - 화면 업데이트 순으로 effect를 실행시킬 수 있다.
 
 ```javascript
 useEffect(() => {}); // 렌더링 결과가 실제 돔에 반영된 후마다 호출
-useEffect(() => {}, []); // 컴포넌트가 처음 나타날때 한 번 호출
+useEffect(() => {}, []); // 컴포넌트가 처음 생성될 때 한 번 호출, componentDidMount
 useEffect(() => {}, [의존성1, 의존성2, ..]); // 조건부 effect 발생, 의존성 중 하나가 변경된다면 effect는 항상 재생성된다.
 ```
 
-useEffect안에서의 return은 정리 함수(clean-up)를 사용하기위해 쓰여진다.
+useEffect안에서의 return값 함수는 정리 함수(clean-up)를 사용하기위해 쓰여진다.
+=> (componentWillUnmount)
 1. 메모리 누수 방지를 위해 UI에서 컴포넌트를 제거하기 전에 수행
 2. 컴포넌트가 여러 번 렌더링 된다면 다음 effect가 수행되기 전에 이전 effect가 정리됩니다.
-3. 
