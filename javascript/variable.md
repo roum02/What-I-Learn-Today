@@ -22,5 +22,5 @@ console.log(10+20)
 ```
 The computer save the numbers (10 and 20) in specific memory addresses. The CPU later reads these numbers from their respective memory addresses and performs calculations.
 
-![img_1.png](img_1.png)
+![img_1.png](../images/img_1.png)
 
