@@ -5,7 +5,7 @@
 
 ## JAVASCRIPT
 
-- [변수](javascript/variable.md)
+- [Variable](javascript/variable.md)
 - [스코프](javascript/scope.md)
 - [클로저](javascript/closure.md)
 - [프로토타입](javascript/prototype.md)

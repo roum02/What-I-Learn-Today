@@ -33,3 +33,10 @@ This allows developers to access values through the variables.
 > assignment is "대입" in korean, which means saving values in variables.
 > 
 > reference is "참조" in korean, which means reading values from variables.
+
+
+### Identifier
+> The name of variable is called an Identifier.
+> An identifier can also refer to a function, a class, or other entities.
+
+It can identify a value using an identifier.
