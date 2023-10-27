@@ -22,5 +22,14 @@ console.log(10+20)
 ```
 The computer save the numbers (10 and 20) in specific memory addresses. The CPU later reads these numbers from their respective memory addresses and performs calculations.
 
+However, the CPU doesn't save the result value of 30. 
+In JavaScript, individual memory management is not directly controlled.
+
+Therefore, Programming languages use variables to save the location of memory. 
+This allows developers to access values through the variables.
+
 ![img_1.png](../images/img_1.png)
 
+> assignment is "대입" in korean, which means saving values in variables.
+> 
+> reference is "참조" in korean, which means reading values from variables.
