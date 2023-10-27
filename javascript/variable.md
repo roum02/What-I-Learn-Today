@@ -10,7 +10,6 @@ Now, let's explore how a computer calculates values.
 
 A computer uses the **CPU** for calculations and stores data in **memory**.
 
-**memory**
 the memory is a set of memory cells, with each cell having a size of 1-byte(8-bit).
 
 Therefore, a computer writes or saves data in 1-byte increments. 
