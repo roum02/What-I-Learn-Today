@@ -20,5 +20,13 @@ In such case, using a cache is helpful.
 the cache stores the origin server's responses and provides duplicates for client's requests, reducing the need for repeated communication with the server.
 
 
+### Bandwidth Bottleneck
+
+the cache can alleviate network bottleneck. 
+
+many networks allocate more bandwidth for a local network client than to an origin server.
+The speed at which clients access the server is equal to the speed of the slowest network component in that path.
+Therefore, If the client could obtain a duplicate from LAN cache, performance could be improved.
+
 
 
