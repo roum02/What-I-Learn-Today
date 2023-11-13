@@ -10,7 +10,7 @@
 - [variable-declaration](javascript/variable-declaration.md) 
 - [스코프](javascript/scope.md)
 - [클로저](javascript/closure.md)
-- [프로토타입](javascript/prototype.md)
+- [프로토타입](javascript/prototype.md) 
 - [실행 컨텍스트](javascript/execution_context.md)  
 - [Getter & Setter](javascript/getter_setter.md)    
 - [함수형 프로그래밍]()  
