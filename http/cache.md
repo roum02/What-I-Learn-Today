@@ -29,4 +29,21 @@ The speed at which clients access the server is equal to the speed of the slowes
 Therefore, If the client could obtain a duplicate from LAN cache, performance could be improved.
 
 
+### Flash Crowds
 
+the caching is also important for Flash Crowds, which causes a serious problem.
+
+### Distance Delay
+
+Although bandwidth is not a problem, distance could be. 
+All network routers introduce delay to internet traffic.
+Even though there are not many routers between a client and a server, 
+light itself could cause delay.
+in this case, installing a cache could reduce the distance. 
+
+### Cache hit and Cache miss
+
+However, the cache doesn't store all the documents in the world. 
+when a request arrives at the cache, 
+it could be processed if there is a document corresponding to the request.
+this is called a cache hit. If there is not, it is called the cache miss.
