@@ -8,7 +8,7 @@ the cache offers benefits such as:
 3. Decreasing requests to the origin server. 
 4. Mitigating distance delays.
 
-In this chapter, we will learn how the cache upgrades itself and reduces costs.
+In this chapter, we will learn how the cache upgrades itself and reduces costs. 
  
 
 ### Send Unnecessary Data
