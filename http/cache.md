@@ -47,6 +47,4 @@ However, the cache doesn't store all the documents in the world.
 when a request arrives at the cache, 
 it could be processed if there is a document corresponding to the request.
 this is called a cache hit. If there is not, it is called the cache miss.
-
-### Revalidation
-
+ 
