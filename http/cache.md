@@ -5,11 +5,11 @@
 the cache offers benefits such as:
 1. Reducing network costs and unnecessary data.
 2. Minimizing network delays.
-3. Decreasing requests to the origin server. 
+3. Decreasing requests to the origin server.
 4. Mitigating distance delays.
 
-In this chapter, we will learn how the cache upgrades itself and reduces costs. 
- 
+In this chapter, we will learn how the cache upgrades itself and reduces costs.
+
 
 ### Send Unnecessary Data
 
@@ -47,4 +47,6 @@ However, the cache doesn't store all the documents in the world.
 when a request arrives at the cache, 
 it could be processed if there is a document corresponding to the request.
 this is called a cache hit. If there is not, it is called the cache miss.
- 
+
+### Revalidation
+
