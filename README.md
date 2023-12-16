@@ -5,7 +5,7 @@
 
 ## JAVASCRIPT  
 
-- [Variable](javascript/variable.md)
+- [Variable](javascript/variable.md) 
 - [hoisting](javascript/hoisting.md) 
 - [variable-declaration](javascript/variable-declaration.md)   
 - [스코프](javascript/scope.md)
