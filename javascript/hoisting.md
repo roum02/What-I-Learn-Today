@@ -10,13 +10,13 @@ console.log(score) // undefined
 var score;
 ```
 
-this code looks like the ReferenceError. Cuz JavaScript is one of the interpreter language.
+this code seems to trigger a ReferenceError because JavaScript is an interpreted language.
 
-But It doesn't.
-the variable, score has undefined at first. 
+However, That's not the actual issue. Initially, the variable 'score' is undefined. 
 
-The Reason Why variable declaration is carried out just before **runtime**.
+This occurs because variable declarations in JavaScript are hoisted and processed just before **runtime**.
 
+The JavaScript engine undergoes an evaluation process, preparing and organizing code execution right before runtime.
 
-
-
+The evaluation process initially executes all declarations in the code. 
+This results in variable hoisting in JavaScript. 
