@@ -13,5 +13,8 @@ even though it appears as only one sentence.
 the timing of variable declaration and Assignment differs. 
 variable declarations are progressed before runtime, whereas value assignments occur during runtime.
 
+> also you could see [here](variable-declaration.md)
 
+Please see the Image below.
 
+![img.png](img.png)
