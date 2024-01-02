@@ -13,8 +13,13 @@ even though it appears as only one sentence.
 the timing of variable declaration and Assignment differs. 
 variable declarations are progressed before runtime, whereas value assignments occur during runtime.
 
-> also you could see [here](variable-declaration.md)
+> also you can view the details [here](variable-declaration.md)
 
 Please see the Image below.
 
 ![img.png](img.png)
+
+when the variable is reassigned, from 'undefined' to the number 80, 
+the old value, 'undefined' is not immediately deleted but remains in memory for a time.
+
+Meanwhile, the new value, the number 80 is allocated to a new location in memory.
