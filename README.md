@@ -9,6 +9,7 @@
 - [hoisting](javascript/hoisting.md) 
 - [variable-declaration](javascript/variable-declaration.md)     
 - [assignment](javascript/assignment.md)
+- [literal](javascript/literal.md)
 - [스코프](javascript/scope.md)
 - [클로저](javascript/closure.md)
 - [프로토타입](javascript/prototype.md) 
