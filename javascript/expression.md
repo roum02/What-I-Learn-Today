@@ -21,3 +21,14 @@ score; // 100
 
 ### expression and statement
 
+A statement consists of expressions and non-expression elements. 
+
+They can be differentiated by whether they involve value assignment.
+If the statement is an expression, it can be assigned a valuable. 
+
+```javascript
+var x; // this is not an expression
+
+x = 1 + 1; // this is an expression
+```
+
