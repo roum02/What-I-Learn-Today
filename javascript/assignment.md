@@ -17,7 +17,7 @@ variable declarations are progressed before runtime, whereas value assignments o
 
 Please see the Image below.
 
-![img.png](img.png)
+![img.png](images/img.png)
 
 when the variable is reassigned, from 'undefined' to the number 80, 
 the old value, 'undefined' is not immediately deleted but remains in memory for a time.
