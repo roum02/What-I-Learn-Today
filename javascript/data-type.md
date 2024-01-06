@@ -12,7 +12,19 @@
 Although there are many numerical data types such as float and double in language like C or Java,
 JavaScript has only one numerical data type called "Number".
 
-### Type String
+#### Type String
 
 the string type is used for text data. 
 it is typically enclosed single quotation marks, double quotation marks, or bacticks.
+
+#### Type Undefined
+
+the undefined type has only one value, it is "undefined".
+Typically, "undefined" is used by JavaScript engine for initialization and is not used intentionally by developers. 
+
+#### Type null
+
+the null type has only one value, it is "null".
+In programming languages, "null" is used intentionally to specify that a value is empty or has no value. 
+
+#### Type Symbol
