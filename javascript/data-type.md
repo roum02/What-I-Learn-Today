@@ -11,3 +11,8 @@
 
 Although there are many numerical data types such as float and double in language like C or Java,
 JavaScript has only one numerical data type called "Number".
+
+### Type String
+
+the string type is used for text data. 
+it is typically enclosed single quotation marks, double quotation marks, or bacticks.
