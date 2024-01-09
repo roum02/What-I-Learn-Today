@@ -28,3 +28,5 @@ the null type has only one value, it is "null".
 In programming languages, "null" is used intentionally to specify that a value is empty or has no value. 
 
 #### Type Symbol
+
+#### Type Object
