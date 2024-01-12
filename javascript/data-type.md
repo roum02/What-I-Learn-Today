@@ -29,4 +29,19 @@ In programming languages, "null" is used intentionally to specify that a value i
 
 #### Type Symbol
 
+the symbol type, introduced in es6, is an immutable primitive value. 
+Since it can't have the same value as other values,
+it is used to create object property keys without the risk of conflict.
+
+A Symbol is created using the Symbol function.
+the value generated during this process is not exposed externally and is guaranteed to be unique,
+ensuring it never overlaps with others.
+
+```javascript
+
+var key = Symbol('key');
+```
+
 #### Type Object
+
+
