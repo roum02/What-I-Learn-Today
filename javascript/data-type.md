@@ -44,4 +44,5 @@ var key = Symbol('key');
 
 #### Type Object
 
-
+In JavaScript, All data types are categorized into Primitive types and Object types.
+As JavaScript is an object-based language, all types are considered object types, except for the six primitive types we have just seen.
