@@ -12,6 +12,7 @@
 - [literal](javascript/literal.md)
 - [expression](javascript/expression.md)
 - [data-type](javascript/data-type.md)
+- [operator](javascript/operator.md)
 - [스코프](javascript/scope.md)
 - [클로저](javascript/closure.md)
 - [프로토타입](javascript/prototype.md) 
