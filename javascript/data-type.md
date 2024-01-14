@@ -46,3 +46,13 @@ var key = Symbol('key');
 
 In JavaScript, All data types are categorized into Primitive types and Object types.
 As JavaScript is an object-based language, all types are considered object types, except for the six primitive types we have just seen.
+
+### necessity of a data type
+
+Since a value needs to be stored and accessed in memory, the size of memory must be determined first.
+
+```javascript
+var score = 100;
+```
+
+Since the variable 'score' is assigned a number type, the JavaScript engine allocates 8 bytes for its value.
