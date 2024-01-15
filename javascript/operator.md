@@ -14,4 +14,4 @@ an arithmetic operator creates a new value through mathematical calculation.
 if the arithmetic operation is not possible, the returned value is "NaN".
 
 1) binary arithmetic operator
-: this operator creates a number value through two operands.
+: this operator creates a number value using two operands.
