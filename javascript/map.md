@@ -28,3 +28,6 @@ Which in this case is composed of key-value pairs.
 const map1 = new Map([['key1', 'value1'],['key2', 'value2']]);
 console.log(map1) // Map(2) {"key1" => "value1", "key2" => "value2" }
 ```
+
+if there are duplicate keys in the iterable, they will be overwritten. 
+That is why a Map object doesn't have duplicate keys.
