@@ -12,7 +12,7 @@
 - [literal](javascript/literal.md)
 - [expression](javascript/expression.md) 
 - [data-type](javascript/data-type.md)
-- [operator](javascript/operator.md)
+- [operator](javascript/operator.md)  
 - [map](javascript/map.md)
 - [iterable](javascript/iterable.md) 
 - [스코프](javascript/scope.md)
