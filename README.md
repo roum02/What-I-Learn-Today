@@ -6,7 +6,7 @@
 ## JAVASCRIPT   
 
 - [Variable](javascript/variable.md)   
-- [hoisting](javascript/hoisting.md)   
+- [hoisting](javascript/hoisting.md)    
 - [variable-declaration](javascript/variable-declaration.md)        
 - [assignment](javascript/assignment.md) 
 - [literal](javascript/literal.md)
