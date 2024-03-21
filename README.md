@@ -9,7 +9,7 @@
 - [hoisting](javascript/hoisting.md)    
 - [variable-declaration](javascript/variable-declaration.md)        
 - [assignment](javascript/assignment.md) 
-- [literal](javascript/literal.md)
+- [literal](javascript/literal.md) 
 - [expression](javascript/expression.md)  
 - [data-type](javascript/data-type.md)
 - [operator](javascript/operator.md)   
