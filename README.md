@@ -23,10 +23,13 @@
 - [실행 컨텍스트](javascript/execution_context.md)  
 - [Getter & Setter](javascript/getter_setter.md)     
 - [함수형 프로그래밍]()     
-    
+
+## TYPESCRIPT
+- [Union-and-Enum](typescript/union-and-enum.md)
+
 ## STORE
 - [cookies](/store/cookies.md)
-  
+
 ## FRAMEWORK 
  
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png"  width="50" /> 
