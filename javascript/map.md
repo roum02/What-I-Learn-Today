@@ -3,7 +3,7 @@
 > A map object is a collection consisting of key-value pairs. 
 
 Map object is similar to an object, but there are some differences as outlined below.
-![img.png](images/map.png)
+![](https://velog.velcdn.com/images/roum02/post/abc947b1-cd7f-4fe9-8873-b42f10929b83/image.png)
 
 ### generating a map object
 
