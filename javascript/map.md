@@ -31,3 +31,37 @@ console.log(map1) // Map(2) {"key1" => "value1", "key2" => "value2" }
 
 if there are duplicate keys in the iterable, they will be overwritten. 
 That is why a Map object doesn't have duplicate keys.
+
+
+### properties for a Map
+
+- size
+
+it can check the amounts of elements in a Map.
+it has only a getter function without setter function, 
+so that is can not be replaced the value.
+
+- set
+
+it uses adding an element in a Map.
+
+```javascript
+let max = new Map();
+
+// map
+max.set('id', 0);
+max.set('이름', '마이클');
+max.set('전공', '영문학');
+max.set('나이', 25);
+
+// get
+max.get('이름'); // "마이클"
+
+// delete
+max.delete('나이'); // true
+
+// clear
+max.clear();
+
+```
+
