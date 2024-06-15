@@ -37,13 +37,17 @@ That is why a Map object doesn't have duplicate keys.
 
 - size
 
-it can check the amounts of elements in a Map.
-it has only a getter function without setter function, 
-so that is can not be replaced the value.
+it checks the number of elements in a Map.
+it has only a getter function without ㅁ setter function, 
+so it can not be replaced with a value.
 
 - set
 
-it uses adding an element in a Map.
+it is used for adding an element in a Map.
+
+** Usually, a key type of Object should be a String or Symbol.
+But, a Map does not have limitations on key value types. 
+
 
 ```javascript
 let max = new Map();
