@@ -14,7 +14,7 @@
 - [data-type](javascript/data-type.md)
 - [operator](javascript/operator.md)   
 - [map](javascript/map.md)   
-- [iterable](javascript/iterable.md)  
+- [iterable](javascript/iterable.md)   
 - [immutable](javascript/immutable.md) 
 - [pure-function](javascript/pure-function.md)
 - [스코프](javascript/scope.md) 
