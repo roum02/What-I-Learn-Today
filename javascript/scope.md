@@ -29,3 +29,28 @@
 - 동적 스코프: 함수를 어디서 호출했는지가 함수의 상위 스코프 결정
 
 - 정적 스코프: 함수를 어디서 정의했는지가 함수의 상위 스코프 결정 -> 자바스크립트 해당
+
+### 클로저와 useState
+
+- useState hook은 함수형 컴포넌트의 상태 관리 문제를 클로저로 해결한다.
+
+```javascript
+const useState = (initialValue) => {
+  let value = initialValue;
+  
+  const state = () => value;
+
+  const setState = (newValue) => {
+    value = newValue;
+  };
+  
+  return [state, setState];
+};
+
+
+const [counter, setCounter] = useState(0);
+
+console.log(counter()); // 0
+setCounter(1);
+console.log(counter()); // 1
+```
