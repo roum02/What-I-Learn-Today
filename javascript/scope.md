@@ -38,7 +38,7 @@
 const useState = (initialValue) => {
   let value = initialValue;
   
-  const state = () => value;
+  const state = () => value; //  이 함수는 호출될 때 현재 상태(value)를 반환
 
   const setState = (newValue) => {
     value = newValue;
@@ -53,4 +53,23 @@ const [counter, setCounter] = useState(0);
 console.log(counter()); // 0
 setCounter(1);
 console.log(counter()); // 1
+```
+
+```javascript
+const useState = (initialValue) => {
+  let state = initialValue; // 초기 상태값을 저장하는 변수
+
+  const setState = (newValue) => {
+    state = newValue; // 상태값을 업데이트하는 함수
+  };
+  
+  return [state, setState];
+};
+
+
+const [counter, setCounter] = useState(0);
+
+console.log(counter); // 0
+setCounter(1);
+console.log(counter); // 0 → Error!
 ```
