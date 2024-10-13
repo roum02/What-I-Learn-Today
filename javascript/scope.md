@@ -73,3 +73,11 @@ console.log(counter); // 0
 setCounter(1);
 console.log(counter); // 0 → Error!
 ```
+setCounter(1)을 호출하면, state는 1로 업데이트된다.
+즉, 함수 내부의 state 값은 1로 변경된다.
+하지만 중요한 것은 이 업데이트가 counter에 반영되지 않는다는 것이다.
+
+여기서 중요한 점은 counter가 초기 값인 state의 복사본이라는 점이다. 
+setCounter(1)이 state를 변경하더라도, 이미 counter에 저장된 값은 업데이트되지 않는다. 
+이는 counter가 단순히 값을 저장하고 있기 때문이다.
+
