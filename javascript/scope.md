@@ -55,6 +55,9 @@ setCounter(1);
 console.log(counter()); // 1
 ```
 
+해당 코드에서는 state가 함수이기 때문에, 최신의 value값을 반환받을 수 있다.
+다만, useState hook의 state는 getter함수이기 때문에, 변수로 바꿔보자면 다음과 같다.
+
 ```javascript
 const useState = (initialValue) => {
   let state = initialValue; // 초기 상태값을 저장하는 변수
@@ -73,11 +76,49 @@ console.log(counter); // 0
 setCounter(1);
 console.log(counter); // 0 → Error!
 ```
-setCounter(1)을 호출하면, state는 1로 업데이트된다.
-즉, 함수 내부의 state 값은 1로 변경된다.
-하지만 중요한 것은 이 업데이트가 counter에 반영되지 않는다는 것이다.
+해당 코드에서 state는 setState를 통해서 값이 업데이트 되지만,
+업데이트 된 변수의 값이 counter에 반영이 되지는 않는다.
 
-여기서 중요한 점은 counter가 초기 값인 state의 복사본이라는 점이다. 
-setCounter(1)이 state를 변경하더라도, 이미 counter에 저장된 값은 업데이트되지 않는다. 
-이는 counter가 단순히 값을 저장하고 있기 때문이다.
 
+```javascript
+const MyReact = (function () {
+  let state;
+
+  return {
+    render(Component) {
+      const Comp = Component();
+      Comp.render();
+      return Comp;
+    },
+
+    useState(initialValue) {
+      state ||= initialValue;
+
+      const setState = (newValue) => {
+        state = newValue;
+      };
+
+      return [state, setState];
+    },
+  };
+})();
+
+const Counter = () => {
+  const [count, setCount] = MyReact.useState(0);
+
+  return {
+    click: () => setCount(count + 1),
+    render: () => console.log('render:', { count }),
+  };
+};
+
+let App;
+App = MyReact.render(Counter); // render: { count: 0 }
+App.click();
+App = MyReact.render(Counter); // render: { count: 1 }
+
+```
+
+state가 useState의 외부 스코프에 선언되어,
+외부 스코프의 state를 변경하게 된다.
+클로저의 원리에 따라 state 값은 사라지지 않는다.
