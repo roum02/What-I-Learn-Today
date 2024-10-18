@@ -33,6 +33,7 @@
 ### 클로저와 useState
 
 - useState hook은 함수형 컴포넌트의 상태 관리 문제를 클로저로 해결한다.
+다음 예시를 통해 확인해 볼 수 있다.
 
 ```javascript
 const useState = (initialValue) => {
