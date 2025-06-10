@@ -52,3 +52,5 @@
 ## AWS
 
 - [Redis](infra/aws/redis.md)
+- [Cloud-Front](infra/aws/cloud-Front.md)
+- [load-balancer](infra/aws/load-balancer.md)
