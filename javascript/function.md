@@ -29,7 +29,9 @@
 | [[Construct]] | `new` 키워드로 생성자 호출 시 실행 (ex: `new Func()`) |
 
 - [[Call]]이 구현된 객체는 **callable(호출 가능)** 객체라고 합니다.
-- [[Construct]]가 구현된 객체는 **constructor(생성자)** 역할을 하는 함수입니다.
+- [[Construct]]가 구현된 객체는 **constructor(생성자)** 역할을 하는 함수입니다. [[Construct]]를 가진 객체는 constructor이라고 하고, 가지지 않았다면, non-constructor 이라고 합니다.
+
+일반 함수로서 호출되면 함수 객체의 내부 메서드 [[Call]]이 호출되고, new 연산자와 함께 생성자 함수로 호출되면 [[Construct]] 가 호출된다.
 
 ---
 
@@ -37,6 +39,11 @@
 
 - 모든 함수는 callable하지만, 모든 함수가 constructor는 아닙니다.
 - 예를 들어, **화살표 함수는 호출 가능(callable)하지만 생성자(new 호출)로는 사용할 수 없습니다.**
+
+![](https://blog.kakaocdn.net/dn/ciaDIb/btrtjP38UzH/EfIcijWUwZ03p8gLEcCW7k/img.png)
+
+- constructor: 함수 선언문, 함수 표현식, 클래스
+- non-constructor: 메서드, 화살표함수
 
 ```javascript
 function normalFunc() {
@@ -53,6 +60,44 @@ arrowFunc();    // 정상 호출
 new normalFunc(); // 가능 (constructor)
 new arrowFunc();  // TypeError: arrowFunc is not a constructor
 
+## new 연산자
+
+일반 함수와 생성자 함수에 특별한 형식적 차이는 없다. new 연산자와 함께 함수를 호출하면 해당 함수는 생성자 함수로 동작한다.
+
+
+```
+
+// 생성자 함수로 정의하지 않은 일반 함수
+function add(x, y) {
+return x + y;
+}
+
+// 일반 함수에 new 연산자를 붙여 호출
+let inst = new add(); // 반환값이 없으므로 빈 객체가 반환됨
+console.log(inst); // {}
+
+```
+
+```
+
+// 생성자 함수
+function Circle(radius) {
+this.radius = radius;
+this.getDiameter = function () {
+return 2 \* this.radius;
+};
+}
+
+// new 연산자 없이 생성자 함수 호출 → 일반 함수처럼 실행됨
+const circle = Circle(5);
+
+// 암묵적으로 다음과 같이 실행됨
+window.radius = 5;
+window.getDiameter = function () {
+return 2 \* this.radius;
+};
+
+```
 
 ## 함수 선언문은 표현식이 아닌 문(statement)이다
 
