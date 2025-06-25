@@ -69,3 +69,17 @@ Cache-Control: Max-Age
 Cache-Control: Expires
 
 출처: https://inpa.tistory.com/entry/HTTP-🌐-웹-브라우저의-캐시-전략-Cache-Headers-다루기 [Inpa Dev 👨‍💻:티스토리]
+
+
+# Next cache
+: 기본적으로 Next.js는 성능을 향상시키고 비용을 절감하기 위해 가능한 한 많이 캐싱합니다.
+![](https://h8dxkfmaphn8o0p3.public.blob.vercel-storage.com/docs/dark/caching-overview.png)
+
+
+그래서 Next cache를 잘 알아두면 좋을까요?
+
+그에 대한 대답은 공식문서에 있습니다. 
+
+> 알아두면 좋은 정보: 이 페이지는 Next.js의 내부 작동 방식을 이해하는 데 도움이 되지만, Next.js를 생산적으로 사용하는 데 필수적인 지식은 아닙니다. 대부분의 Next.js 캐싱 휴리스틱은 API 사용에 의해 결정되며, 최소한의 구성으로도 최상의 성능을 발휘하도록 기본값이 설정되어 있습니다.
+
+# React cache
