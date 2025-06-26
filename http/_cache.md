@@ -69,19 +69,31 @@ Cache-Control: Expires
 
 # Next cache
 
-: 기본적으로 Next.js는 성능을 향상시키고 비용을 절감하기 위해 가능한 한 많이 캐싱합니다.
+기본적으로 Next.js는 성능을 향상시키고 비용을 절감하기 위해 가능한 한 많이 캐싱합니다.
 ![](https://h8dxkfmaphn8o0p3.public.blob.vercel-storage.com/docs/dark/caching-overview.png)
 
+<!--
 빌드타임의 캐시 동작
 
 요청타임의 캐시 동작
-
+-->
 - RSC Payload는 서버에서 렌더링된 React 컴포넌트의 **"결과"** (구조화된 JSON 트리 상태)
   Next App router에서 클라이언트는 이전에 방문한 페이지에 대한 정보를 메모리에 캐싱해둠
 - Full Route Cache: 서버에 저장되는 캐시 계층, 특정 url 경로에 대한 렌더링 결과 캐싱 (RSC Payload/HTML)
 
+
+## Server Component의 도입으로 데이터 페칭의 방식에 변화가 일어났다!
+![](https://velog.velcdn.com/images/skyoffly/post/cc73c988-4536-44da-8951-39a4ab818f0d/image.png)
+
+데이터 페칭을 더 편하게 할 수 있는 것은 장점이지만, 문제는 동일한 요청이 여러 컴포넌트에서 발생하는 경우가 발생할 수 밖에 없다는 단점이 동시에 발현됨
+
+Page Router에서는 Page에서 모든 데이터를 받아서 내려보내주면 그만이었지만, App Router에서는 각 컴포넌트에서 직접 데이터를 페칭할 수 있게 되었기 때문에 중복된 API 요청이 발생할 가능성이 대단히 높아짐
+
 ![](https://velog.velcdn.com/images/skyoffly/post/6f2c8342-6416-46cc-9f3f-47fa82dbfa87/image.png)
+<!--
 https://velog.io/@skyoffly/%ED%95%99%EC%8A%B5-Next.js-Day-15-App-Router-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%8E%98%EC%B9%AD-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%BA%90%EC%8B%B1-Request-Memoization
+-->
+
 
 ## Request Memoization
 
@@ -109,6 +121,8 @@ const item = await getItem() // cache HIT
 - "같은 요청(=같은 서버 사이드 렌더링 컨텍스트)" 내에서만 유효
 - 메모이제이션은 fetch 요청의 GET 메서드에만 적용되며, POST 및 DELETE와 같은 다른 메서드는 메모이제이션되지 않음. (이 기본 동작은 React 최적화이며 이를 선택 해제하는 것은 권장하지 않음)
 
+![](https://nextjs.org/_next/image?url=https%3A%2F%2Fh8DxKfmAPhn8O0p3.public.blob.vercel-storage.com%2Fdocs%2Fdark%2Frequest-memoization.png&w=3840&q=75)
+
 ## data cache
 
 우리가 일반적으로 생각할 수 있는 API 캐싱입니다.
@@ -121,6 +135,8 @@ fetch('https://...', { next: { revalidate: 3600 } })
 Next.js가 확장해놓은 fetch 함수에 next.revalidate 옵션을 넘기면 Data Cache가 동작한다.
 성공적으로 데이터를 가져왔다면 그 응답값을 저장해두었다가 동일한 경로로 fetch 함수를 실행할 때 실제 API 호출은 건너뛰고 저장해놓은 응답값을 반환.
 
+![](https://velog.velcdn.com/images/skyoffly/post/946906f9-342c-46f4-8862-56f32a7898ea/image.png)
+
 하나의 요청 동안만 유효한 Request Memoization과 다르게 Data Cache는 일정 시간 동안에 웹 서버로 들어오는 모든 요청에 대해 동작한다.
 만약 next.revalidate를 1초로 설정했다면, 1초에 1000명의 사용자가 접속해도 실제 API 요청은 1회 전송
 
@@ -131,18 +147,29 @@ Next.js가 확장해놓은 fetch 함수에 next.revalidate 옵션을 넘기면 D
 
 ## Full Route Cache
 
-: 웹 서버의 성능을 눈에 띄게 향상시키려면 Full Route Cache를 적용해야 한다. 서버 렌더링 과정에서 웹 서버의 리소스(특히 CPU)를 대부분 사용하게 되는데, Full Route Cache는 서버 렌더링 결과를 재사용함으로써 이를 줄일 수 있다.
+Next.js는 빌드 타임에 데이터 호출, 캐싱 등의 작업을 마치고 페이지의 생성 결과를 풀 라우트 캐시Full Route Cache에 저장하게 된다.
+실제 접속 요청이 들어오게 되면,풀 라우트 캐시Full Route Cache에 저장된 생성 결과를 HIT해준다. (미리 완성된 결과를 반환해준다는 면에서 SSG와 결과가 흡사하다.)
 
+
+웹 서버의 성능을 눈에 띄게 향상시키려면 Full Route Cache를 적용해야 한다. 서버 렌더링 과정에서 웹 서버의 리소스(특히 CPU)를 대부분 사용하게 되는데, Full Route Cache는 서버 렌더링 결과를 재사용함으로써 이를 줄일 수 있다.
+
+![](https://velog.velcdn.com/images/skyoffly/post/764c810f-22d1-48ce-9096-67d52659bb9c/image.png)
 ![](https://h8dxkfmaphn8o0p3.public.blob.vercel-storage.com/docs/dark/full-route-cache.png)
 
+<!--
 ### Subsequent Navigations
 
 후속 탐색 또는 프리페치 중에 Next.js는 React Server Components Payload가 Router Cache에 저장되어 있는지 확인 후, 있다면 서버에 새 요청을 보내는 것을 건너뛴다.
 
 경로 세그먼트가 캐시에 없으면 Next.js는 서버에서 React Server Components Payload를 가져와 클라이언트의 Router Cache를 채운다.
+-->
+## Next App의 페이지들의 정적/동적 구분
 
 ![](https://h8dxkfmaphn8o0p3.public.blob.vercel-storage.com/docs/dark/static-and-dynamic-routes.png)
+![](https://velog.velcdn.com/images/skyoffly/post/e17466cc-2317-4d3a-93b4-1b47f95ea5b6/image.png)
 경로가 빌드 시 캐시되는지 여부는 정적으로 렌더링되는지 동적으로 렌더링되는지에 따라 다르다. 정적 경로는 기본적으로 캐시되지만, 동적 경로는 요청 시 렌더링되며 캐시되지 않는다.
+
+=> Full Route Cache는 정적 페이지에서만 동작한다.
 
 ## Client-side Router Cache
 
