@@ -222,7 +222,7 @@ export const getItem = cache(async (id: string) => {
 })
 ```
 
-그래서 Next cache를 잘 알아두면 좋을까요?
+## 그래서 Next cache를 잘 알아두면 좋을까요?
 
 그에 대한 대답은 공식문서에 있습니다.
 
