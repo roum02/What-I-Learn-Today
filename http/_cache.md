@@ -1,5 +1,21 @@
 # Cache
 
+Cache란 자주 사용하는 데이터나 값을 미리 복사해 놓는 임시 장소를 가리킨다. 아래와 같은 저장공간 계층 구조에서 확인할 수 있듯이, 캐시는 저장 공간이 작고 비용이 비싼 대신 빠른 성능을 제공한다. 
+
+![](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FZdW35%2FbtqCbTDmFj5%2FAAAAAAAAAAAAAAAAAAAAADvc5j3k2a9Jnr-6OWX13yS0DUbIeSooOLXeZYsXK_A4%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1751295599%26allow_ip%3D%26allow_referer%3D%26signature%3Dl9TubokYBabGecb5xMfJyVbQMN4%253D)
+
+Cache에 데이터를 미리 복사해 놓으면 계산이나 접근 시간 없이 더 빠른 속도로 데이터에 접근할 수 있다. 결국 Cache란 반복적으로 데이터를 불러오는 경우에, 지속적으로 DBMS 혹은 서버에 요청하는 것이 아니라 Memory에 데이터를 저장하였다가 불러다 쓰는 것을 의미한다.
+
+
+# 캐시의 필요성?
+![](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2Fbzw7IJ%2FbtqCaglKbIT%2FAAAAAAAAAAAAAAAAAAAAAPPkLFFmDPEImL2a917-CcoJp0i2tVMEVcNgGKI_pYVx%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1751295599%26allow_ip%3D%26allow_referer%3D%26signature%3DMKLsSm20hnZ8b%252Bi79vwbPBIXRdk%253D)
+
+위의 그래프는 Long Tail 법칙의 그래프이다. Long Tail 법칙은 20%의 요구가 시스템 리소스의 대부분을 사용한다는 법칙이다. 
+그렇기 때문에 20%의 기능에 Cache를 이용함으로써 리소스 사용량은 대폭 줄이고, 성능은 대폭 향상시킬 수 있다.
+
+
+## 네트워크 캐시
+
 - 웹 캐시: 자주 쓰이는 문서의 사본을 자동으로 보관하는 HTTP 장치
   캐시는 불필요한 데이터 전송을 줄임(비용 감소)
   네트워크 병목 줄임 (대역폭 병목 감소)
@@ -67,7 +83,7 @@ Cache-Control: Expires
 
 출처: https://inpa.tistory.com/entry/HTTP-🌐-웹-브라우저의-캐시-전략-Cache-Headers-다루기 [Inpa Dev 👨‍💻:티스토리]
 
-# Next cache
+# Next cache (서버/애플리케이션 레밸 캐시)
 
 기본적으로 Next.js는 성능을 향상시키고 비용을 절감하기 위해 가능한 한 많이 캐싱합니다.
 ![](https://h8dxkfmaphn8o0p3.public.blob.vercel-storage.com/docs/dark/caching-overview.png)
