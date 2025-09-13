@@ -29,3 +29,10 @@ c.f. AWS EFS
 오브젝트라는 개별 데이터 단위로 데이터를 저장하는 유형이다. 파일 스토리지와는 다르게 계층 구조 없이 평면 구조로 데이터를 저장한다.
 
 c.f. AWS S3
+
+### S3의 스토리지 클래스
+
+![](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FIHxL8%2FbtsFmmDh9di%2FAAAAAAAAAAAAAAAAAAAAAFbsPCdsExnVks-O3NSm99bp238Ruo7tXaonamAdCkkG%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1759244399%26allow_ip%3D%26allow_referer%3D%26signature%3DotkMHTqD278u58J5CPsdzIXBAL4%253D)
+
+각 스토리지 클래스 간 이동이 가능함.
+![](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FbR05sT%2Fbtr4LGPR1zd%2FAAAAAAAAAAAAAAAAAAAAAAZQCfDAY87bgmXgCE40_BquoUC2KdwJF81CJelSGyEf%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1759244399%26allow_ip%3D%26allow_referer%3D%26signature%3DTH7V0UN6OqwqPyjwXdIc%252Fw4f4r4%253D)
