@@ -36,3 +36,7 @@ c.f. AWS S3
 
 각 스토리지 클래스 간 이동이 가능함.
 ![](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FbR05sT%2Fbtr4LGPR1zd%2FAAAAAAAAAAAAAAAAAAAAAAZQCfDAY87bgmXgCE40_BquoUC2KdwJF81CJelSGyEf%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1759244399%26allow_ip%3D%26allow_referer%3D%26signature%3DTH7V0UN6OqwqPyjwXdIc%252Fw4f4r4%253D)
+
+## AWS SNS vs SQS
+
+![](https://cdn.maily.so/ojdy4c893tt760t7eow4b2ic8fv2)
