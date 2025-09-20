@@ -40,3 +40,7 @@ c.f. AWS S3
 ## AWS SNS vs SQS
 
 ![](https://cdn.maily.so/ojdy4c893tt760t7eow4b2ic8fv2)
+
+---
+
+## 문제 추가 풀면서 새로 알았던 개념 정리
