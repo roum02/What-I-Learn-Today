@@ -1,1 +1,1 @@
-## PostgreSQL
+## 데이터베이스와 DBMS
