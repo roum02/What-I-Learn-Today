@@ -228,3 +228,12 @@ C. 자격 증명이 포함된 파일을 AWS Key Management Service(AWS KMS) 암�
 
 D. 애플리케이션이 자격 증명을 로드하는 데 사용하는 AWS Key Management Service(AWS KMS) 암호화된 Amazon S3 버킷에 자격 증명이 포함된 파일을 저장합니다. 올바른 자격 증명이 사용되도록 정기적으로 애플리케이션에 파일을 다운로드합니다. 14일마다 Aurora 자격 증명을 순환하고 이러한 자격 증명을 S3 버킷의 파일에 업로드하는 AWS Lambda 함수를 구현합니다.
 ```
+
+## keyword
+- AWS Secrets Manager
+- Parameter Store
+- EFS
+
+## 풀이
+- lambda로 직접 함수 구현 시 운영 부담이 크다
+답: A
